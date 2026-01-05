@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZPaXI+4AC00=",
+  "success": true,
+  "projectFilePath": "D:\\Code Samples\\TadbirQueryAI\\TadbirQueryAI.Api\\TadbirQueryAI.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\h.ghasemi\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "C:\\Users\\h.ghasemi\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
