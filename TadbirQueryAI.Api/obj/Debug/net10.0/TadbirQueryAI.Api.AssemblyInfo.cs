@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("563f23a1-2b1d-4ac2-9244-b2e78703f515")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TadbirQueryAI.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd23476b22e1e1d862e87c939b56109da1cf21d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("TadbirQueryAI.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TadbirQueryAI.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,24 +1,40 @@
+using TadbirQueryAI.Api.Endpoints;
+using TadbirQueryAI.Api.Infrastructure;
+using TadbirQueryAI.Api.Infrastructure.Auth;
+using TadbirQueryAI.Api.Infrastructure.Security;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+Directory.CreateDirectory(Path.Combine(app.Environment.ContentRootPath, "Data"));
+await AuthSeed.InitializeAsync(app.Services, app.Configuration, app.Environment);
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "TadbirQueryAI API v1");
+        options.DocumentTitle = "TadbirQueryAI API";
+    });
 }
 
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.UseRateLimiter();
+app.UseAuthentication();
+app.UseAuthorization();
 
-app.MapGet("/query", (string QueryString) =>
-    {
-        
-        return QueryString;
-    })
-    .WithName("Query");
+app.MapAuthEndpoints();
+app.MapQueryEndpoints();
+
+app.MapFallbackToFile("index.html");
 
 app.Run();

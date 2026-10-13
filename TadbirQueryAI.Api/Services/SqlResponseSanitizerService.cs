@@ -1,14 +1,13 @@
-﻿namespace TadbirQueryAI.Api.Services;
+﻿using TadbirQueryAI.Api.Infrastructure.Security;
+
+namespace TadbirQueryAI.Api.Services;
 
 public interface ISqlResponseSanitizerService
 {
-    public string SanitizeQuery(string query);
+    SqlGuardResult SanitizeQuery(string query);
 }
 
-public class SqlResponseSanitizerService : ISqlResponseSanitizerService
+public class SqlResponseSanitizerService(ISqlQueryGuard sqlQueryGuard) : ISqlResponseSanitizerService
 {
-    public string SanitizeQuery(string query)
-    {
-        throw new NotImplementedException();
-    }
+    public SqlGuardResult SanitizeQuery(string query) => sqlQueryGuard.Validate(query);
 }
