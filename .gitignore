@@ -1,0 +1,30 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+## Auth / local DB
+**/Data/*.db
+**/Data/*.db-shm
+**/Data/*.db-wal
+
+## Secrets
+appsettings.*.local.json
+**/secrets.json
+
+## Frontend
+**/ClientApp/node_modules/
+**/ClientApp/dist/
+**/wwwroot/
+
+## IDE
+.idea/
+*.DotSettings.user
+
+## OS
+.DS_Store
+Thumbs.db
